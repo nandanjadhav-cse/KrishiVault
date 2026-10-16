@@ -1,0 +1,27 @@
+export const SUPPORTED_LANGUAGES = [
+  { code: 'en', name: 'English', nativeName: 'English', script: 'Latin', dir: 'ltr', status: 'complete' },
+  { code: 'hi', name: 'Hindi', nativeName: 'हिन्दी', script: 'Devanagari', dir: 'ltr', status: 'complete' },
+  { code: 'mr', name: 'Marathi', nativeName: 'मराठी', script: 'Devanagari', dir: 'ltr', status: 'complete' },
+  { code: 'as', name: 'Assamese', nativeName: 'অসমীয়া', script: 'Bengali-Assamese', dir: 'ltr', status: 'draft' },
+  { code: 'bn', name: 'Bengali', nativeName: 'বাংলা', script: 'Bengali', dir: 'ltr', status: 'draft' },
+  { code: 'brx', name: 'Bodo', nativeName: 'बड़ो', script: 'Devanagari', dir: 'ltr', status: 'draft' },
+  { code: 'doi', name: 'Dogri', nativeName: 'डोगरी', script: 'Devanagari', dir: 'ltr', status: 'draft' },
+  { code: 'gu', name: 'Gujarati', nativeName: 'ગુજરાતી', script: 'Gujarati', dir: 'ltr', status: 'draft' },
+  { code: 'kn', name: 'Kannada', nativeName: 'ಕನ್ನಡ', script: 'Kannada', dir: 'ltr', status: 'draft' },
+  { code: 'ks', name: 'Kashmiri', nativeName: 'कॉशुर / كٲشُر', script: 'Perso-Arabic', dir: 'rtl', status: 'draft' },
+  { code: 'gom', name: 'Konkani', nativeName: 'कोंकणी', script: 'Devanagari', dir: 'ltr', status: 'draft' },
+  { code: 'mai', name: 'Maithili', nativeName: 'मैथिली', script: 'Devanagari', dir: 'ltr', status: 'draft' },
+  { code: 'ml', name: 'Malayalam', nativeName: 'മലയാളം', script: 'Malayalam', dir: 'ltr', status: 'draft' },
+  { code: 'mni', name: 'Manipuri', nativeName: 'মৈতৈলোন্', script: 'Meitei Mayek', dir: 'ltr', status: 'draft' },
+  { code: 'ne', name: 'Nepali', nativeName: 'नेपाली', script: 'Devanagari', dir: 'ltr', status: 'draft' },
+  { code: 'or', name: 'Odia', nativeName: 'ଓଡ଼ିଆ', script: 'Odia', dir: 'ltr', status: 'draft' },
+  { code: 'pa', name: 'Punjabi', nativeName: 'ਪੰਜਾਬੀ', script: 'Gurmukhi', dir: 'ltr', status: 'draft' },
+  { code: 'sa', name: 'Sanskrit', nativeName: 'संस्कृतम्', script: 'Devanagari', dir: 'ltr', status: 'draft' },
+  { code: 'sat', name: 'Santali', nativeName: 'संताली /  Ol Chiki', script: 'Ol Chiki', dir: 'ltr', status: 'draft' },
+  { code: 'sd', name: 'Sindhi', nativeName: 'سنڌي / सिन्धी', script: 'Perso-Arabic', dir: 'rtl', status: 'draft' },
+  { code: 'ta', name: 'Tamil', nativeName: 'தமிழ்', script: 'Tamil', dir: 'ltr', status: 'draft' },
+  { code: 'te', name: 'Telugu', nativeName: 'తెలుగు', script: 'Telugu', dir: 'ltr', status: 'draft' },
+  { code: 'ur', name: 'Urdu', nativeName: 'اردو', script: 'Perso-Arabic', dir: 'rtl', status: 'draft' },
+];
+
+export const DEFAULT_LANGUAGE = 'en';
