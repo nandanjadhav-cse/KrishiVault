@@ -169,15 +169,15 @@ export const Home = () => {
               <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#123B2A]/90 border border-[#08B65A]/40 shadow-lg backdrop-blur-md">
                 <span className="w-2 h-2 rounded-full bg-[#08B65A] animate-ping" />
                 <span className="text-xs sm:text-sm font-bold tracking-wider text-[#DDF7E8] uppercase">
-                  SMART STORAGE. STRONGER FARMERS.
+                  {t('brand.tagline', 'SMART STORAGE. STRONGER FARMERS.')}
                 </span>
               </div>
 
               {/* Main Headline */}
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white tracking-tight leading-[1.08]">
-                Your Harvest Deserves{' '}
+                {t('hero.title', 'Your Harvest Deserves')}{' '}
                 <span className="text-[#08B65A] relative inline-block whitespace-nowrap">
-                  a Safe Home
+                  {t('hero.titleHighlight', 'a Safe Home')}
                   <svg
                     className="absolute left-0 -bottom-2 w-full h-3 text-[#E8B52C] pointer-events-none"
                     viewBox="0 0 100 12"
@@ -198,7 +198,7 @@ export const Home = () => {
 
               {/* Supporting Description */}
               <p className="text-base sm:text-lg lg:text-xl text-slate-200 leading-relaxed font-normal max-w-2xl">
-                Discover affordable warehouse space, connect directly with warehouse owners, and share storage costs with other farmers through one simple platform.
+                {t('hero.subtitle', 'Discover affordable warehouse space, connect directly with warehouse owners, and share storage costs with other farmers through one simple platform.')}
               </p>
 
               {/* CTA Buttons */}
@@ -208,7 +208,7 @@ export const Home = () => {
                   className="inline-flex items-center gap-2.5 px-7 py-4 rounded-2xl bg-[#08B65A] hover:bg-[#079d4e] text-white font-extrabold text-base transition-all shadow-xl hover:shadow-[#08B65A]/30 hover:scale-105 active:scale-95"
                 >
                   <Warehouse className="w-5 h-5" />
-                  <span>Find Warehouse Space</span>
+                  <span>{t('hero.primaryCta', 'Find Warehouse Space')}</span>
                   <ArrowRight className="w-5 h-5 ml-1" />
                 </Link>
 
@@ -217,7 +217,7 @@ export const Home = () => {
                   className="inline-flex items-center gap-2 px-6 py-4 rounded-2xl bg-white/10 hover:bg-white/20 text-white font-bold text-base border border-white/25 backdrop-blur-md transition-all hover:scale-105 active:scale-95"
                 >
                   <Building2 className="w-5 h-5 text-[#E8B52C]" />
-                  <span>List Your Warehouse</span>
+                  <span>{t('hero.secondaryCta', 'List Your Warehouse')}</span>
                 </button>
               </div>
 
@@ -349,11 +349,11 @@ export const Home = () => {
               <MapPin className="w-5 h-5 text-[#08B65A] shrink-0" />
               <div className="w-full">
                 <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">
-                  Location / District
+                  {t('hero.searchLocation', 'Location / District')}
                 </label>
                 <input
                   type="text"
-                  placeholder="e.g. Nashik, Ludhiana, Indore..."
+                  placeholder={t('hero.searchLocationPlaceholder', 'e.g. Nashik, Ludhiana, Indore...')}
                   value={searchLocation}
                   onChange={(e) => setSearchLocation(e.target.value)}
                   className="w-full bg-transparent text-xs sm:text-sm font-semibold text-slate-800 placeholder-slate-400 focus:outline-none"
@@ -365,14 +365,14 @@ export const Home = () => {
               <Layers className="w-5 h-5 text-[#08B65A] shrink-0" />
               <div className="w-full">
                 <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">
-                  Crop Type
+                  {t('hero.searchCrop', 'Crop Type')}
                 </label>
                 <select
                   value={searchCrop}
                   onChange={(e) => setSearchCrop(e.target.value)}
                   className="w-full bg-transparent text-xs sm:text-sm font-semibold text-slate-800 focus:outline-none cursor-pointer"
                 >
-                  <option value="">All Crops</option>
+                  <option value="">{t('hero.allCrops', 'All Crops')}</option>
                   <option value="Wheat">Wheat (गेहूं)</option>
                   <option value="Paddy">Paddy / Rice (धान)</option>
                   <option value="Onion">Onion (प्याज)</option>
@@ -388,7 +388,7 @@ export const Home = () => {
               <Scale className="w-5 h-5 text-[#08B65A] shrink-0" />
               <div className="w-full">
                 <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">
-                  Capacity Needed
+                  {t('hero.searchCapacity', 'Capacity Needed (MT)')}
                 </label>
                 <input
                   type="number"
@@ -406,7 +406,7 @@ export const Home = () => {
                 className="w-full py-4 rounded-2xl bg-[#08B65A] hover:bg-[#079d4e] text-white font-extrabold text-sm flex items-center justify-center gap-2 shadow-md hover:scale-105 active:scale-95 transition-all"
               >
                 <Search className="w-4 h-4" />
-                <span>Search</span>
+                <span>{t('hero.searchBtn', 'Search')}</span>
               </button>
             </div>
 
@@ -425,10 +425,10 @@ export const Home = () => {
               Clear 4-Step Process
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#101712] tracking-tight">
-              Smarter Storage. Simpler Decisions.
+              {t('howItWorks.title', 'How Krishi Vault Works')}
             </h2>
             <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-              Krishi Vault helps farmers discover storage options and explore shared warehouse rentals, while helping warehouse owners connect with potential customers.
+              {t('howItWorks.subtitle', 'Transforming empty warehouse slots into affordable, cooperative storage hubs in 4 simple steps.')}
             </p>
           </div>
 
@@ -447,10 +447,10 @@ export const Home = () => {
                   </span>
                 </div>
                 <h3 className="text-xl font-bold text-[#101712]">
-                  Discover Storage
+                  {t('howItWorks.step1Title', 'Discover Storage')}
                 </h3>
                 <p className="text-sm text-slate-600 leading-relaxed">
-                  Farmers explore available warehouse listings and compare relevant information such as WDRA compliance, proximity, crop support, and facilities.
+                  {t('howItWorks.step1Desc', 'Farmers explore available warehouse listings and compare relevant information such as WDRA compliance, proximity, crop support, and facilities.')}
                 </p>
               </div>
               <div className="pt-6 border-t border-slate-100 flex items-center text-xs font-bold text-[#08B65A]">
@@ -471,10 +471,10 @@ export const Home = () => {
                   </span>
                 </div>
                 <h3 className="text-xl font-bold text-[#101712]">
-                  Find Your Fit
+                  {t('howItWorks.step2Title', 'Find Your Fit')}
                 </h3>
                 <p className="text-sm text-slate-600 leading-relaxed">
-                  Farmers identify a warehouse that suits their storage needs, crop type, location, and budget without forced whole-bay minimum constraints.
+                  {t('howItWorks.step2Desc', 'Farmers identify a warehouse that suits their storage needs, crop type, location, and budget without forced whole-bay minimum constraints.')}
                 </p>
               </div>
               <div className="pt-6 border-t border-slate-100 flex items-center text-xs font-bold text-[#08B65A]">
@@ -495,10 +495,10 @@ export const Home = () => {
                   </span>
                 </div>
                 <h3 className="text-xl font-bold text-[#101712]">
-                  Share the Cost
+                  {t('howItWorks.step3Title', 'Share the Cost')}
                 </h3>
                 <p className="text-sm text-slate-600 leading-relaxed">
-                  Multiple farmers can explore sharing a warehouse's rental cost according to their agreed storage allocation, dividing commercial rent equitably.
+                  {t('howItWorks.step3Desc', 'Multiple farmers can explore sharing a warehouse\'s rental cost according to their agreed storage allocation, dividing commercial rent equitably.')}
                 </p>
               </div>
               <div className="pt-6 border-t border-slate-100 flex items-center text-xs font-bold text-[#ca8a04]">
@@ -519,10 +519,10 @@ export const Home = () => {
                   </span>
                 </div>
                 <h3 className="text-xl font-bold text-[#101712]">
-                  Connect & Coordinate
+                  {t('howItWorks.step4Title', 'Connect & Coordinate')}
                 </h3>
                 <p className="text-sm text-slate-600 leading-relaxed">
-                  Farmers and warehouse owners can coordinate rental arrangements through the intended platform workflow with transparency for all parties.
+                  {t('howItWorks.step4Desc', 'Farmers and warehouse owners can coordinate rental arrangements through the intended platform workflow with transparency for all parties.')}
                 </p>
               </div>
               <div className="pt-6 border-t border-slate-100 flex items-center text-xs font-bold text-[#08B65A]">
@@ -1327,10 +1327,10 @@ export const Home = () => {
                 Live Prototype Inventory
               </span>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-[#101712] tracking-tight">
-                Explore Available Warehouses
+                {t('warehouse.discoveryTitle', 'Explore Available Warehouses')}
               </h2>
               <p className="text-sm text-slate-600">
-                Browse real working warehouse profiles with active bay capacities and scientific storage specifications.
+                {t('warehouse.discoverySubtitle', 'Browse real working warehouse profiles with active bay capacities and scientific storage specifications.')}
               </p>
             </div>
 
@@ -1338,7 +1338,7 @@ export const Home = () => {
               to="/warehouses"
               className="inline-flex items-center gap-2 text-sm font-bold text-[#08B65A] hover:text-[#079d4e] transition-colors"
             >
-              <span>View All Warehouses</span>
+              <span>{t('warehouse.loadMore', 'View All Warehouses')}</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -1432,7 +1432,7 @@ export const Home = () => {
               className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-[#08B65A] hover:bg-[#079d4e] text-white font-extrabold text-base transition-all shadow-xl hover:shadow-[#08B65A]/30 hover:scale-105 active:scale-95"
             >
               <Warehouse className="w-5 h-5" />
-              <span>Find Storage</span>
+              <span>{t('hero.primaryCta', 'Find Storage')}</span>
             </Link>
 
             <button
@@ -1440,7 +1440,7 @@ export const Home = () => {
               className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-white/10 hover:bg-white/20 text-white font-bold text-base border border-white/25 backdrop-blur-md transition-all hover:scale-105 active:scale-95"
             >
               <Building2 className="w-5 h-5 text-[#E8B52C]" />
-              <span>List Your Warehouse</span>
+              <span>{t('hero.secondaryCta', 'List Your Warehouse')}</span>
             </button>
           </div>
 

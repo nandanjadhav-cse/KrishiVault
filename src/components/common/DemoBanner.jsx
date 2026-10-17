@@ -16,15 +16,15 @@ export const DemoBanner = () => {
             <span className="relative inline-flex rounded-full h-2 w-2 bg-harvest-500"></span>
           </span>
           <span className="font-semibold text-harvest-300 tracking-wide uppercase text-[10px] bg-krishi-800/80 px-2 py-0.5 rounded-full border border-harvest-500/30">
-            College Prototype Demo
+            {t('nav.demoMode', 'College Prototype Demo')}
           </span>
           <span className="hidden sm:inline text-slate-300">
-            Simulated agritech environment with localStorage persistence.
+            {t('common.demoNotice', 'Simulated agritech environment with localStorage persistence.')}
           </span>
         </div>
 
         <div className="flex items-center gap-2">
-          <span className="text-slate-400 hidden md:inline">Quick Switch:</span>
+          <span className="text-slate-400 hidden md:inline">{t('nav.quickSwitch', 'Quick Switch')}:</span>
           
           <button
             onClick={() => demoLogin('farmer')}
@@ -36,7 +36,7 @@ export const DemoBanner = () => {
             title="Log in as demo farmer Ramesh Patil (Nashik)"
           >
             <UserCheck className="w-3.5 h-3.5" />
-            <span>Farmer: {currentUser?.role === 'farmer' ? currentUser.name.split(' ')[0] : 'Ramesh'}</span>
+            <span>{t('auth.farmerRole', 'Farmer')}: {currentUser?.role === 'farmer' ? currentUser.name.split(' ')[0] : 'Ramesh'}</span>
           </button>
 
           <button
@@ -49,7 +49,7 @@ export const DemoBanner = () => {
             title="Log in as demo warehouse operator Vikramaditya Deshmukh"
           >
             <Warehouse className="w-3.5 h-3.5" />
-            <span>Owner: {currentUser?.role === 'owner' ? currentUser.name.split(' ')[0] : 'Vikram'}</span>
+            <span>{t('auth.ownerRole', 'Owner')}: {currentUser?.role === 'owner' ? currentUser.name.split(' ')[0] : 'Vikram'}</span>
           </button>
 
           <button
@@ -62,7 +62,7 @@ export const DemoBanner = () => {
             title="Reset demo data to initial defaults"
           >
             <RotateCcw className="w-3 h-3" />
-            <span className="hidden lg:inline">Reset Data</span>
+            <span className="hidden lg:inline">{t('profile.resetDemoData', 'Reset Data')}</span>
           </button>
         </div>
       </div>

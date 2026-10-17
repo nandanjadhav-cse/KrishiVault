@@ -4,16 +4,31 @@ import { initStorage, resetAllDemoData } from '../services/storageService';
 import { authService } from '../services/authService';
 import { notificationService } from '../services/notificationService';
 import { SUPPORTED_LANGUAGES } from '../i18n/languages';
+import { updateDocumentDirection } from '../i18n/index';
 import confetti from 'canvas-confetti';
 
 const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
   const { i18n } = useTranslation();
+  const [currentLanguage, setCurrentLanguage] = useState(() => {
+    return i18n.language || localStorage.getItem('krishi_vault_lang') || 'en';
+  });
   const [currentUser, setCurrentUser] = useState(null);
   const [unreadCount, setUnreadCount] = useState(0);
   const [toasts, setToasts] = useState([]);
   const [dataVersion, setDataVersion] = useState(1); // Increment to trigger re-reads
+
+  // Listen to i18n language changes
+  useEffect(() => {
+    const handleLanguageChanged = (lng) => {
+      setCurrentLanguage(lng);
+    };
+    i18n.on('languageChanged', handleLanguageChanged);
+    return () => {
+      i18n.off('languageChanged', handleLanguageChanged);
+    };
+  }, [i18n]);
 
   // Initialize storage on mount
   useEffect(() => {
@@ -114,10 +129,20 @@ export const AppProvider = ({ children }) => {
   };
 
   // Language switcher
-  const changeLanguage = (langCode) => {
-    i18n.changeLanguage(langCode);
-    const langObj = SUPPORTED_LANGUAGES.find(l => l.code === langCode);
-    showToast(`Language set to ${langObj?.name || langCode} (${langObj?.nativeName || ''})`, 'info');
+  const changeLanguage = async (langCode) => {
+    try {
+      await i18n.changeLanguage(langCode);
+      setCurrentLanguage(langCode);
+      localStorage.setItem('krishi_vault_lang', langCode);
+      updateDocumentDirection(langCode);
+      if (currentUser && currentUser.preferredLanguage !== langCode) {
+        authService.updateProfile({ preferredLanguage: langCode });
+      }
+      const langObj = SUPPORTED_LANGUAGES.find(l => l.code === langCode);
+      showToast(`Language set to ${langObj?.name || langCode} (${langObj?.nativeName || ''})`, 'info');
+    } catch (err) {
+      console.error('Failed to change language:', err);
+    }
   };
 
   // Reset entire demo data
@@ -145,7 +170,7 @@ export const AppProvider = ({ children }) => {
         unreadCount,
         refreshNotifications,
         changeLanguage,
-        currentLanguage: i18n.language,
+        currentLanguage,
         showToast,
         dataVersion,
         notifyDataChanged,

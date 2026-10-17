@@ -6,11 +6,13 @@ import { Globe, Check, Search, ChevronDown } from 'lucide-react';
 
 export const LanguageSelector = ({ variant = 'default' }) => {
   const { currentLanguage, changeLanguage } = useApp();
+  const { i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const dropdownRef = useRef(null);
 
-  const activeLang = SUPPORTED_LANGUAGES.find(l => l.code === currentLanguage) || SUPPORTED_LANGUAGES[0];
+  const selectedCode = currentLanguage || i18n.language || localStorage.getItem('krishi_vault_lang') || 'en';
+  const activeLang = SUPPORTED_LANGUAGES.find(l => l.code === selectedCode) || SUPPORTED_LANGUAGES[0];
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -68,7 +70,7 @@ export const LanguageSelector = ({ variant = 'default' }) => {
 
           <div className="overflow-y-auto p-1.5 divide-y divide-slate-50">
             {filteredLanguages.map((lang) => {
-              const isSelected = lang.code === currentLanguage;
+              const isSelected = lang.code === selectedCode;
               return (
                 <button
                   key={lang.code}

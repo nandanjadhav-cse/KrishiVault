@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import {
   PhoneCall,
   ShieldCheck,
@@ -16,6 +17,7 @@ import {
 } from 'lucide-react';
 
 export const Footer = () => {
+  const { t } = useTranslation();
   return (
     <footer className="bg-[#101712] text-slate-300 border-t border-white/10">
       {/* Top Value Banner */}
@@ -63,7 +65,7 @@ export const Footer = () => {
                   Krishi Vault
                 </span>
                 <p className="text-xs text-[#08B65A] font-semibold">
-                  Your Harvest Deserves a Safe Home.
+                  {t('brand.tagline', 'Your Harvest Deserves a Safe Home.')}
                 </p>
               </div>
             </Link>
@@ -90,37 +92,37 @@ export const Footer = () => {
           {/* Quick Navigation Links */}
           <div>
             <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-4 border-l-2 border-[#08B65A] pl-2">
-              Navigation
+              {t('footer.quickLinks', 'Navigation')}
             </h4>
             <ul className="space-y-2.5 text-xs">
               <li>
                 <Link to="/" className="text-slate-400 hover:text-white transition-colors">
-                  Home
+                  {t('nav.home', 'Home')}
                 </Link>
               </li>
               <li>
                 <a href="#how-it-works" className="text-slate-400 hover:text-white transition-colors">
-                  How It Works
+                  {t('howItWorks.title', 'How It Works')}
                 </a>
               </li>
               <li>
                 <Link to="/warehouses" className="text-slate-400 hover:text-white transition-colors">
-                  Explore Warehouses
+                  {t('nav.warehouses', 'Explore Warehouses')}
                 </Link>
               </li>
               <li>
                 <a href="#about" className="text-slate-400 hover:text-white transition-colors">
-                  About Us
+                  {t('nav.about', 'About Us')}
                 </a>
               </li>
               <li>
                 <a href="#team" className="text-slate-400 hover:text-white transition-colors">
-                  Our Team
+                  {t('nav.team', 'Our Team')}
                 </a>
               </li>
               <li>
                 <Link to="/contact" className="text-slate-400 hover:text-white transition-colors">
-                  Contact
+                  {t('nav.contact', 'Contact')}
                 </Link>
               </li>
             </ul>
@@ -134,28 +136,28 @@ export const Footer = () => {
             <ul className="space-y-2.5 text-xs">
               <li>
                 <Link to="/warehouses" className="text-slate-400 hover:text-white transition-colors">
-                  Warehouse Discovery
+                  {t('nav.warehouses', 'Warehouse Discovery')}
                 </Link>
               </li>
               <li>
                 <Link to="/marketplace" className="text-slate-400 hover:text-white transition-colors flex items-center gap-1.5">
-                  <span>Shared Rental Groups</span>
+                  <span>{t('nav.marketplace', 'Shared Rental Groups')}</span>
                   <span className="text-[9px] bg-[#08B65A]/20 text-[#DDF7E8] px-1 rounded">Co-Op</span>
                 </Link>
               </li>
               <li>
                 <Link to="/calculator" className="text-slate-400 hover:text-white transition-colors">
-                  Cost Sharing Calculator
+                  {t('nav.calculator', 'Cost Sharing Calculator')}
                 </Link>
               </li>
               <li>
                 <Link to="/farmer-dashboard" className="text-slate-400 hover:text-white transition-colors">
-                  Farmer Portal Demo
+                  {t('nav.farmerDashboard', 'Farmer Portal Demo')}
                 </Link>
               </li>
               <li>
                 <Link to="/owner-dashboard" className="text-slate-400 hover:text-white transition-colors">
-                  Warehouse Owner Portal
+                  {t('nav.ownerDashboard', 'Warehouse Owner Portal')}
                 </Link>
               </li>
             </ul>
@@ -182,7 +184,7 @@ export const Footer = () => {
 
         {/* Bottom copyright notice */}
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p>© {new Date().getFullYear()} Krishi Vault. All rights reserved. Academic Prototype.</p>
+          <p>© {new Date().getFullYear()} Krishi Vault. {t('footer.rights', 'All rights reserved.')} Academic Prototype.</p>
           <p className="text-[11px] text-slate-400">
             Government College of Engineering, Chhatrapati Sambhajinagar
           </p>

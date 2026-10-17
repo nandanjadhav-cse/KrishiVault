@@ -95,7 +95,7 @@ export const Navbar = () => {
                 </span>
               </span>
               <span className="text-[11px] text-slate-300 font-medium mt-0.5 hidden xs:block">
-                Your Harvest Deserves a Safe Home.
+                {t('brand.tagline', 'Your Harvest Deserves a Safe Home.')}
               </span>
             </div>
           </Link>
@@ -112,14 +112,14 @@ export const Navbar = () => {
                 }`
               }
             >
-              Home
+              {t('nav.home', 'Home')}
             </NavLink>
 
             <button
               onClick={() => scrollToSection('how-it-works')}
               className={navLinkClass}
             >
-              How It Works
+              {t('howItWorks.title', 'How It Works')}
             </button>
 
             <NavLink
@@ -132,28 +132,28 @@ export const Navbar = () => {
                 }`
               }
             >
-              Explore Warehouses
+              {t('nav.warehouses', 'Explore Warehouses')}
             </NavLink>
 
             <button
               onClick={() => scrollToSection('about')}
               className={navLinkClass}
             >
-              About Us
+              {t('nav.about', 'About Us')}
             </button>
 
             <button
               onClick={() => scrollToSection('team')}
               className={navLinkClass}
             >
-              Our Team
+              {t('nav.team', 'Our Team')}
             </button>
 
             <button
               onClick={() => scrollToSection('contact')}
               className={navLinkClass}
             >
-              Contact
+              {t('nav.contact', 'Contact')}
             </button>
           </nav>
 
@@ -183,7 +183,7 @@ export const Navbar = () => {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#08B65A] hover:bg-[#079d4e] text-white font-bold text-xs sm:text-sm transition-all shadow-md hover:shadow-[#08B65A]/25 hover:scale-105 active:scale-95"
             >
               <Sparkles className="w-4 h-4 text-white" />
-              <span>Get Started</span>
+              <span>{t('hero.primaryCta', 'Get Started')}</span>
             </Link>
 
             {/* User Profile Dropdown or Login */}
@@ -211,7 +211,7 @@ export const Navbar = () => {
                       <p className="text-xs font-bold text-slate-900">{currentUser.name}</p>
                       <p className="text-[11px] text-slate-500 truncate">{currentUser.email}</p>
                       <span className="inline-block mt-1 text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-[#DDF7E8] text-[#123B2A]">
-                        {currentUser.role === 'owner' ? 'Warehouse Operator' : 'Kisan Member'}
+                        {currentUser.role === 'owner' ? t('auth.ownerRole', 'Warehouse Operator') : t('auth.farmerRole', 'Kisan Member')}
                       </span>
                     </div>
 
@@ -221,7 +221,7 @@ export const Navbar = () => {
                       className="flex items-center gap-2.5 px-4 py-2.5 text-xs text-slate-700 hover:bg-krishi-50 hover:text-krishi-900 font-medium"
                     >
                       <LayoutDashboard className="w-4 h-4 text-[#08B65A]" />
-                      {currentUser.role === 'owner' ? 'Owner Portal' : 'Farmer Portal'}
+                      {currentUser.role === 'owner' ? t('nav.ownerDashboard', 'Owner Portal') : t('nav.farmerDashboard', 'Farmer Portal')}
                     </Link>
 
                     <Link
@@ -230,7 +230,7 @@ export const Navbar = () => {
                       className="flex items-center gap-2.5 px-4 py-2.5 text-xs text-slate-700 hover:bg-krishi-50 hover:text-krishi-900 font-medium"
                     >
                       <User className="w-4 h-4 text-[#08B65A]" />
-                      My Profile
+                      {t('nav.profile', 'My Profile')}
                     </Link>
 
                     <div className="my-1 border-t border-slate-100"></div>
@@ -258,7 +258,7 @@ export const Navbar = () => {
                       className="w-full flex items-center gap-2.5 px-4 py-2.5 text-xs text-red-600 hover:bg-red-50 font-medium"
                     >
                       <LogOut className="w-4 h-4" />
-                      Log Out
+                      {t('nav.logout', 'Log Out')}
                     </button>
                   </div>
                 )}
@@ -269,13 +269,13 @@ export const Navbar = () => {
                   to="/login"
                   className="px-3.5 py-1.5 rounded-lg text-xs font-semibold text-white hover:bg-white/10 transition-colors"
                 >
-                  Login
+                  {t('nav.login', 'Login')}
                 </Link>
                 <Link
                   to="/register"
                   className="px-3.5 py-1.5 rounded-lg text-xs font-bold bg-[#E8B52C] hover:bg-amber-400 text-slate-950 transition-colors shadow-sm"
                 >
-                  Register
+                  {t('nav.register', 'Register')}
                 </Link>
               </div>
             )}
@@ -304,13 +304,13 @@ export const Navbar = () => {
             onClick={() => setMobileMenuOpen(false)}
             className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-base font-semibold text-white hover:bg-white/10"
           >
-            Home
+            {t('nav.home', 'Home')}
           </Link>
           <button
             onClick={() => scrollToSection('how-it-works')}
             className="w-full text-left flex items-center gap-3 px-4 py-2.5 rounded-xl text-base font-semibold text-slate-200 hover:bg-white/10"
           >
-            How It Works
+            {t('howItWorks.title', 'How It Works')}
           </button>
           <NavLink
             to="/warehouses"
@@ -318,25 +318,25 @@ export const Navbar = () => {
             className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-base font-semibold text-slate-200 hover:bg-white/10"
           >
             <Warehouse className="w-5 h-5 text-[#08B65A]" />
-            Explore Warehouses
+            {t('nav.warehouses', 'Explore Warehouses')}
           </NavLink>
           <button
             onClick={() => scrollToSection('about')}
             className="w-full text-left flex items-center gap-3 px-4 py-2.5 rounded-xl text-base font-semibold text-slate-200 hover:bg-white/10"
           >
-            About Us
+            {t('nav.about', 'About Us')}
           </button>
           <button
             onClick={() => scrollToSection('team')}
             className="w-full text-left flex items-center gap-3 px-4 py-2.5 rounded-xl text-base font-semibold text-slate-200 hover:bg-white/10"
           >
-            Our Team
+            {t('nav.team', 'Our Team')}
           </button>
           <button
             onClick={() => scrollToSection('contact')}
             className="w-full text-left flex items-center gap-3 px-4 py-2.5 rounded-xl text-base font-semibold text-slate-200 hover:bg-white/10"
           >
-            Contact
+            {t('nav.contact', 'Contact')}
           </button>
 
           <div className="pt-2 pb-1 border-t border-white/10 grid grid-cols-2 gap-2 text-xs">
@@ -346,7 +346,7 @@ export const Navbar = () => {
               className="flex items-center gap-2 p-2.5 rounded-lg bg-white/5 text-slate-200 hover:bg-white/10"
             >
               <Users className="w-4 h-4 text-[#E8B52C]" />
-              <span>Group Booking</span>
+              <span>{t('nav.marketplace', 'Group Booking')}</span>
             </Link>
             <Link
               to="/calculator"
@@ -354,7 +354,7 @@ export const Navbar = () => {
               className="flex items-center gap-2 p-2.5 rounded-lg bg-white/5 text-slate-200 hover:bg-white/10"
             >
               <Calculator className="w-4 h-4 text-[#08B65A]" />
-              <span>Calculator</span>
+              <span>{t('nav.calculator', 'Calculator')}</span>
             </Link>
           </div>
 
@@ -365,7 +365,7 @@ export const Navbar = () => {
               className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-[#08B65A] hover:bg-[#079d4e] text-white font-bold text-sm shadow-md"
             >
               <Sparkles className="w-4 h-4" />
-              <span>Get Started</span>
+              <span>{t('hero.primaryCta', 'Get Started')}</span>
             </Link>
           </div>
 
@@ -379,7 +379,7 @@ export const Navbar = () => {
                 className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-red-950/80 text-red-200 text-sm font-semibold border border-red-800"
               >
                 <LogOut className="w-4 h-4" />
-                Log Out ({currentUser.name})
+                {t('nav.logout', 'Log Out')} ({currentUser.name})
               </button>
             ) : (
               <div className="grid grid-cols-2 gap-2">
@@ -388,14 +388,14 @@ export const Navbar = () => {
                   onClick={() => setMobileMenuOpen(false)}
                   className="py-2.5 rounded-xl bg-white/10 text-white text-center text-sm font-semibold"
                 >
-                  Login
+                  {t('nav.login', 'Login')}
                 </Link>
                 <Link
                   to="/register"
                   onClick={() => setMobileMenuOpen(false)}
                   className="py-2.5 rounded-xl bg-[#E8B52C] text-slate-900 text-center text-sm font-bold"
                 >
-                  Register
+                  {t('nav.register', 'Register')}
                 </Link>
               </div>
             )}

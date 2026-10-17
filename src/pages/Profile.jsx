@@ -22,7 +22,7 @@ import {
 export const Profile = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const { currentUser, updateProfile, resetDemoData, changeLanguage, logout, showToast } = useApp();
+  const { currentUser, updateProfile, resetDemoData, changeLanguage, currentLanguage, logout, showToast } = useApp();
 
   const [name, setName] = useState(currentUser?.name || '');
   const [email, setEmail] = useState(currentUser?.email || '');
@@ -30,9 +30,15 @@ export const Profile = () => {
   const [location, setLocation] = useState(currentUser?.location || '');
   const [crops, setCrops] = useState((currentUser?.crops || []).join(', '));
   const [companyName, setCompanyName] = useState(currentUser?.companyName || '');
-  const [preferredLang, setPreferredLang] = useState(currentUser?.preferredLanguage || 'en');
+  const [preferredLang, setPreferredLang] = useState(currentUser?.preferredLanguage || currentLanguage || 'en');
   const [emailAlerts, setEmailAlerts] = useState(true);
   const [smsAlerts, setSmsAlerts] = useState(true);
+
+  React.useEffect(() => {
+    if (currentLanguage) {
+      setPreferredLang(currentLanguage);
+    }
+  }, [currentLanguage]);
 
   const [isResetConfirmOpen, setIsResetConfirmOpen] = useState(false);
 
@@ -202,7 +208,11 @@ export const Profile = () => {
               </label>
               <select
                 value={preferredLang}
-                onChange={(e) => setPreferredLang(e.target.value)}
+                onChange={(e) => {
+                  const newLang = e.target.value;
+                  setPreferredLang(newLang);
+                  changeLanguage(newLang);
+                }}
                 className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-krishi-500"
               >
                 {SUPPORTED_LANGUAGES.map((lang) => (
