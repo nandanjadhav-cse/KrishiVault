@@ -32,7 +32,8 @@ import {
   ExternalLink,
   ChevronRight,
   Info,
-  Maximize2
+  Maximize2,
+  Mail
 } from 'lucide-react';
 
 export const Home = () => {
