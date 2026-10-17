@@ -43,6 +43,14 @@ export default {
           800: '#2c221a',
           900: '#1f1812',
           950: '#140f0b',
+        },
+        agri: {
+          DEFAULT: '#08B65A',
+          hover: '#079d4e',
+          light: '#DDF7E8',
+          forest: '#123B2A',
+          charcoal: '#101712',
+          gold: '#E8B52C',
         }
       },
       fontFamily: {
